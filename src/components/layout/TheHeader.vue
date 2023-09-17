@@ -36,7 +36,7 @@ function removeUserToken() {
   <header class="header">
     <div class="ml-3">
       <img
-        src="../../assets/home/hero/Jinan3.0 .png"
+        src="../../assets/home/hero/Jinan.png"
         alt="logo"
         class="w-11 h-11 object-cover rounded-full shadow-md"
       />

@@ -11,6 +11,6 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/home/",
+  base: "/jinan-food-project/",
   plugins: [vue()],
 });
