@@ -130,7 +130,7 @@ function autoLogout() {
           class="flex flex-col items-center justify-center gap-2 p-4 bg-orange-950 bg-opacity-40 rounded-md"
         >
           <img
-            src="../../assets/home/hero/Jinan3.0 .png"
+            src="../../assets/home/hero/jinanLogo.jpg"
             alt="logo"
             class="rounded-md"
           />

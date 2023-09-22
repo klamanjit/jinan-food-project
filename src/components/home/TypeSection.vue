@@ -8,8 +8,8 @@ const types = inject("types");
   <div class="2xl:container 2xl:mx-auto">
     <section>
       <div class="px-10 py-10">
-        <h3 class="sm:text-sm font-semibold">Chapter I</h3>
-        <h2 class="text-4xl mb-4 font-bold">
+        <h3 class="phone:text-xs font-semibold">Chapter I</h3>
+        <h2 class="phone:text-2xl sm:text-3xl lg:text-4xl mb-4 font-bold">
           The Art of Thai Food Presentation: Beauty on the Plate
         </h2>
       </div>
@@ -17,7 +17,7 @@ const types = inject("types");
       <main v-for="type in types" :key="type.id">
         <div
           v-if="+type.id % 2 !== 0"
-          class="sm:border-t-2 lg:border-none lg:grid lg:grid-cols-2 gap-6 px-10 py-10 lg:mb-10"
+          class="phone:border-t-2 lg:border-none lg:grid lg:grid-cols-2 gap-6 px-10 py-10 lg:mb-10"
         >
           <div
             class="flex justify-center items-center relative my-before-class my-after-class"
@@ -31,7 +31,7 @@ const types = inject("types");
           <div>
             <h3 class="text-sm mb-1 font-semibold">{{ type.title }}</h3>
             <h1 class="text-4xl mb-4">0{{ type.id }}</h1>
-            <p class="text-base text-slate-900">
+            <p class="phone:text-sm lg:text-base text-slate-900">
               {{ type.description }}
             </p>
           </div>
@@ -39,12 +39,12 @@ const types = inject("types");
 
         <div
           v-else
-          class="sm:border-t-2 sm:flex sm:flex-col lg:border-none lg:grid lg:grid-cols-2 gap-6 px-10 py-10 lg:mb-10"
+          class="phone:border-t-2 phone:flex phone:flex-col lg:border-none lg:grid lg:grid-cols-2 gap-6 px-10 py-10 lg:mb-10"
         >
           <div>
             <h3 class="text-sm mb-1 font-semibold">{{ type.title }}</h3>
             <h1 class="text-4xl mb-4">0{{ type.id }}</h1>
-            <p class="text-base text-slate-900">
+            <p class="phone:text-sm lg:text-base text-slate-900">
               {{ type.description }}
             </p>
           </div>

@@ -15,13 +15,15 @@ const isUserToken = computed(() => {
   <section class="mb-16 bg-gradient-to-r from-orange-500 to-orange-600">
     <div class="2xl:container 2xl:mx-auto">
       <main
-        class="sm:flex sm:flex-col lg:grid lg:grid-cols-2 px-10 gap-6 py-16"
+        class="phone:flex phone:flex-col lg:grid lg:grid-cols-2 px-10 gap-6 py-16"
       >
         <div class="flex flex-col justify-center">
-          <h1 class="text-left font-bold text-4xl mb-9">
+          <h1
+            class="text-left font-bold phone:text-2xl sm:text-3xl lg:text-4xl mb-9"
+          >
             Exploring the Flavors of Thailand
           </h1>
-          <p class="mb-6 text-slate-900">
+          <p class="mb-6 phone:text-sm lg:text-base text-slate-900">
             Thai food is an enticing fusion of bold flavors, aromatic herbs, and
             vibrant colors. From iconic dishes like Pad Thai and Green Curry to
             the aromatic Tom Yum soup, Thai cuisine offers a harmonious balance

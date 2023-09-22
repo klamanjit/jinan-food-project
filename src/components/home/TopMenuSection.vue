@@ -45,17 +45,17 @@ function addTocart1() {
   <section class="mb-16 bg-orange-600">
     <div class="2xl:container 2xl:mx-auto">
       <main
-        class="sm:flex sm:flex-col lg:grid lg:grid-cols-2 px-10 gap-6 py-16"
+        class="phone:flex phone:flex-col phone:gap-12 lg:grid lg:grid-cols-2 px-10 gap-6 py-16"
       >
         <div class="col-span-2">
-          <h3 class="sm:text-sm font-semibold">Chapter II</h3>
-          <h2 class="text-4xl mb-4 font-bold">
+          <h3 class="phone:text-xs font-semibold">Chapter II</h3>
+          <h2 class="phone:text-2xl sm:text-3xl lg:text-4xl mb-4 font-bold">
             Discover the Exquisite Special Dishes at "Jinan"
           </h2>
         </div>
         <div class="flex flex-col justify-center items-center relative">
           <div class="bg-slate-300/25 px-4 py-4 rounded-md my-card-trasition">
-            <div class="w-96 h-56 relative overflow-hidden">
+            <div class="phone:w-80 sm:w-96 h-56 relative overflow-hidden">
               <div class="my-before"></div>
               <img
                 :src="topMenu[0].url"
@@ -63,7 +63,9 @@ function addTocart1() {
                 class="my-img object-myPosition0"
               />
             </div>
-            <h2 class="text-2xl mt-4 text-orange-100 font-semibold">
+            <h2
+              class="sm:text-xl lg:text-2xl mt-4 text-orange-100 font-semibold"
+            >
               {{ topMenu[0].name }}
             </h2>
             <base-badge mode="my-badge-salmon "> Salmon</base-badge>
@@ -83,7 +85,7 @@ function addTocart1() {
         </div>
         <div class="flex flex-col justify-center items-center relative">
           <div class="bg-slate-300/25 px-4 py-4 rounded-md my-card-trasition">
-            <div class="w-96 h-56 relative overflow-hidden">
+            <div class="phone:w-80 sm:w-96 h-56 relative overflow-hidden">
               <div class="my-before"></div>
               <img
                 :src="topMenu[1].url"
@@ -91,7 +93,9 @@ function addTocart1() {
                 class="my-img object-myPosition1"
               />
             </div>
-            <h2 class="text-2xl mt-4 text-orange-100 font-semibold">
+            <h2
+              class="sm:text-xl lg:text-2xl mt-4 text-orange-100 font-semibold"
+            >
               {{ topMenu[1].name }}
             </h2>
             <base-badge mode="my-badge-shrimp "> Shrimp</base-badge>
@@ -116,11 +120,11 @@ function addTocart1() {
 
 <style scoped>
 .my-img {
-  @apply w-full h-full object-cover rounded-md  transition-all duration-300 ease-in;
+  @apply phone:w-full h-full object-cover rounded-md  transition-all duration-300 ease-in;
 }
 
 .my-card-trasition {
-  @apply transition-all duration-300 ease-in hover:scale-125;
+  @apply sm:transition-all duration-300 ease-in sm:hover:scale-125;
 }
 
 .my-before {

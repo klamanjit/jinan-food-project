@@ -16,6 +16,9 @@ export default {
         myLogin: "1fr 2fr",
         myCart: "4fr 1fr 3fr 1fr 1fr",
       },
+      screens: {
+        phone: "370px",
+      },
     },
   },
   variants: {

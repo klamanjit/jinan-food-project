@@ -4,6 +4,7 @@ import {
   ArrowLeftCircleIcon,
   ArrowRightCircleIcon,
 } from "@heroicons/vue/24/solid";
+import { PhCaretCircleLeft, PhCaretCircleRight } from "@phosphor-icons/vue";
 
 const carts = inject("carts");
 const drinkMenu = inject("drinkMenu");
@@ -61,13 +62,15 @@ function prevDrink() {
   <div class="2xl:container 2xl:mx-auto">
     <section class="px-10 py-10">
       <div>
-        <h3 class="sm:text-sm font-semibold">Chapter III</h3>
-        <h2 class="text-4xl mb-4 font-bold">
+        <h3 class="phone:text-xs font-semibold">Chapter III</h3>
+        <h2 class="phone:text-2xl sm:text-3xl lg:text-4xl mb-4 font-bold">
           Indulge in Our Exclusive Selection of Signature Drinks
         </h2>
       </div>
 
-      <div class="px-10 py-10 flex justify-center items-center relative z-0">
+      <div
+        class="sm:px-10 sm:py-10 flex justify-center items-center relative z-0"
+      >
         <base-button mode="base-button-icon">
           <ArrowLeftCircleIcon
             @click="prevDrink"
@@ -76,7 +79,7 @@ function prevDrink() {
         </base-button>
 
         <div
-          class="lg:mx-10 px-5 py-5 lg:w-1/3 lg:h-1/3 xl:w-1/4 xl:h-1/4 bg-orange-600 bg-opacity-50 rounded-md relative overflow-hidden shadow-md"
+          class="lg:mx-10 px-5 py-5 phone:w-[16rem] sm:w-[24rem] lg:w-[32rem] h-1/3 bg-orange-600 bg-opacity-50 rounded-md relative overflow-hidden shadow-md"
         >
           <div class="my-before"></div>
           <img
@@ -85,7 +88,9 @@ function prevDrink() {
             class="w-full h-96 object-cover object-center rounded-md mb-2"
           />
 
-          <h2 class="lg:text-xl font-bold text-orange-50 tracking-wide">
+          <h2
+            class="sm:text-xl lg:text-2xl font-bold text-orange-50 tracking-wide"
+          >
             {{ (drinkMenu[drinkIndexValue] || drinkMenu[0]).name || "" }}
           </h2>
           <base-badge mode="my-badge-coco">{{
@@ -98,18 +103,38 @@ function prevDrink() {
             (drinkMenu[drinkIndexValue] || drinkMenu[0]).subDetail.sub3
           }}</base-badge>
           <br />
-          <base-button link to="/cart">View Detail</base-button>
-          <base-button
-            mode="base-button-outline"
-            @click="addTocart(drinkMenu[drinkIndexValue])"
-            >Add to Cart</base-button
-          >
+
+          <div class="phone:flex phone:flex-col phone:gap-1 sm:flex-row gap-2">
+            <base-button link class="text-center" to="/cart"
+              >View Detail</base-button
+            >
+            <base-button
+              mode="base-button-outline"
+              @click="addTocart(drinkMenu[drinkIndexValue])"
+              >Add to Cart</base-button
+            >
+          </div>
         </div>
         <base-button mode="base-button-icon">
           <ArrowRightCircleIcon
             @click="nextDrink"
             class="icon-drink-menu"
           ></ArrowRightCircleIcon>
+        </base-button>
+      </div>
+
+      <div class="text-center">
+        <base-button mode="base-button-icon">
+          <PhCaretCircleLeft
+            @click="prevDrink"
+            class="icon-drink-menu-phoneResolution"
+          ></PhCaretCircleLeft>
+        </base-button>
+        <base-button mode="base-button-icon">
+          <PhCaretCircleRight
+            @click="nextDrink"
+            class="icon-drink-menu-phoneResolution"
+          ></PhCaretCircleRight>
         </base-button>
       </div>
     </section>
@@ -124,19 +149,10 @@ function prevDrink() {
 }
 
 .icon-drink-menu {
-  @apply h-16 w-16 fill-orange-600;
+  @apply phone:hidden sm:block h-16 w-16 fill-orange-600;
 }
 
-/* .myDrinksContainer {
-  @apply px-10 py-10 flex justify-center items-center relative z-0 after:block after:w-full after:h-full after:rounded-full after:bg-orange-900 after:bg-opacity-30 after:-z-30 after:absolute after:top-0
-  before:block before:w-3/4 before:h-full before:rounded-full before:bg-orange-700 before:bg-opacity-30 before:-z-20 before:absolute before:top-0;
-} */
-
-/* .my-after-menu-section {
-  @apply after:block after:w-full after:h-full after:rounded-full after:bg-orange-700 after:bg-opacity-30 after:-z-30 after:absolute after:top-0;
+.icon-drink-menu-phoneResolution {
+  @apply phone:h-8 phone:w-8 fill-orange-600  rounded-full sm:hidden;
 }
-
-.my-before-menu-section {
-  @apply before:block before:w-3/4 before:h-full before:rounded-full before:bg-orange-500 before:bg-opacity-30 before:-z-20 before:absolute before:top-0;
-} */
 </style>

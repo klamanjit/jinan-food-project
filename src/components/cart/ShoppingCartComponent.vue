@@ -21,7 +21,7 @@ function removeCart(cartIndex) {
 
 <template>
   <div
-    class="grid grid-cols-myCart items-center justify-center gap-2 p-4 border-b border-slate-400"
+    class="phone:hidden lg:grid lg:grid-cols-myCart lg:items-center lg:justify-center gap-2 p-4 border-b border-slate-400"
   >
     <h2 class="text-center text-2xl font-semibold">Description</h2>
     <h2 class="text-center text-2xl font-semibold">Id</h2>
@@ -31,27 +31,35 @@ function removeCart(cartIndex) {
   </div>
 
   <div
-    class="grid grid-cols-myCart items-center justify-center gap-2 p-4 border-b border-slate-400"
+    class="grid grid-cols-myCart items-center justify-center gap-2 phone:p-4 sm:p-4 border-b border-slate-400"
     v-for="(cart, idx) in carts"
     :key="cart.id"
   >
     <div class="flex justify-center items-center gap-4">
-      <img :src="cart.url" alt="" class="w-32 h-32 object-cover rounded-md" />
+      <img
+        :src="cart.url"
+        alt=""
+        class="phone:w-24 phone:h-24 sm:w-32 sm:h-32 object-cover rounded-md"
+      />
       <div>
-        <h2 class="text-xl font-medium mb-1">{{ cart.name }}</h2>
-        <p class="text-sm sm:hidden lg:block">{{ cart.detail }}</p>
+        <h2 class="phone:text-sm lg:text-xl font-medium mb-1">
+          {{ cart.name }}
+        </h2>
+        <p class="text-sm phone:hidden lg:block">{{ cart.detail }}</p>
       </div>
     </div>
-    <h2 class="text-center">{{ cart.id }}</h2>
-    <div class="flex justify-center items-center gap-2">
+    <h2 class="phone:hidden sm:block text-sm text-center">{{ cart.id }}</h2>
+    <div
+      class="phone:flex phone:flex-col sm:flex-row justify-center items-center phone:gap-1 sm:gap-2"
+    >
       <base-button
-        class="h-6 w-6 flex justify-center items-center"
+        class="phone:h-5 phone:w-5 sm:h-6 sm:w-6 flex justify-center items-center text-xs"
         @click="addQuantity(cart)"
         >+</base-button
       >
-      <p class="text-center">{{ cart.quanttity }}</p>
+      <p class="text-center text-sm">{{ cart.quanttity }}</p>
       <base-button
-        class="h-6 w-6 flex justify-center items-center"
+        class="phone:h-5 phone:w-5 sm:h-6 sm:w-6 flex justify-center items-center text-xs"
         @click="reduceQuantity(cart)"
         >-</base-button
       >
@@ -60,10 +68,10 @@ function removeCart(cartIndex) {
     <div class="flex justify-center">
       <base-button
         @click="removeCart(idx)"
-        class="h-6 w-6 flex justify-center items-center"
+        class="phone:h-5 phone:w-5 sm:h-6 sm:w-6 flex justify-center items-center text-xs"
         >x</base-button
       >
     </div>
-    <h2 class="text-center">{{ cart.price * cart.quanttity }} ฿</h2>
+    <h2 class="text-center text-sm">{{ cart.price * cart.quanttity }} ฿</h2>
   </div>
 </template>
