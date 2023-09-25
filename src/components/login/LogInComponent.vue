@@ -83,7 +83,7 @@ async function formSubmited() {
       return;
     }
 
-    const expiredToken = responseData.expiresIn * 1000;
+    const expiredToken = +responseData.expiresIn * 1000;
     // const expiredToken = 5000;
 
     const expiredTokenDate = new Date().getTime() + expiredToken;
@@ -97,7 +97,11 @@ async function formSubmited() {
 
     router.replace("/home");
 
-    timer = setTimeout(autoLogout, expiredToken);
+    timer = setTimeout(
+      autoLogout,
+
+      expiredToken
+    );
   } catch (err) {
     console.error(err);
   }

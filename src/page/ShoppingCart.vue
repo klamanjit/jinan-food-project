@@ -1,13 +1,24 @@
 <script setup>
 import ShoppingCartComponent from "../components/cart/ShoppingCartComponent.vue";
 import { computed, inject, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const carts = inject("carts");
 const userId = localStorage.getItem("userId");
 const error = ref(null);
 
+const router = useRouter();
+
 const isUserId = computed(() => {
   return !!userId;
+});
+
+const popupMessage = computed(() => {
+  if (error.value) {
+    return `Something went wrong: ${error.value}`;
+  } else {
+    return `Thank you! Your order has been sent.`;
+  }
 });
 
 console.log(isUserId.value);
@@ -36,17 +47,31 @@ const cartsValidation = computed(() => {
   return true;
 });
 
+// token
+
+const userToken = localStorage.getItem("token");
+
 // Handle error
 const isError = ref(false);
 
+function closePopup() {
+  isError.value = false;
+
+  router.replace("/home");
+}
+
 async function registerCarts() {
   if (!cartsValidation.value) {
-    alert("Need to login first and add some product to the cart");
+    // alert("Need to login first and add some product to the cart");
+
+    error.value = "Need to login first and add some product to the cart";
+    isError.value = true;
+    carts.value = [];
     return;
   }
 
   console.log("validate");
-  const url = `https://jinanrestaurant-16d55-default-rtdb.asia-southeast1.firebasedatabase.app/${userId}.json`;
+  const url = `https://jinanrestaurant-16d55-default-rtdb.asia-southeast1.firebasedatabase.app/userId/${userId}.json?auth=${userToken}`;
 
   try {
     const response = await fetch(url, {
@@ -64,6 +89,8 @@ async function registerCarts() {
     }
 
     console.log(responseData);
+    carts.value = [];
+    isError.value = true;
   } catch (err) {
     error.value = err;
   }
@@ -72,12 +99,8 @@ async function registerCarts() {
 
 <template>
   <the-header></the-header>
-  <base-dialog
-    :show="isError"
-    title="Something went wrong"
-    @close="isError = false"
-  >
-    {{ error }}
+  <base-dialog :show="isError" title="Important message!" @close="closePopup">
+    {{ popupMessage }}
   </base-dialog>
 
   <base-card class="my-16 relative" v-if="isCarts">
