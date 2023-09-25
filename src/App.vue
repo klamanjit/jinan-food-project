@@ -1,4 +1,12 @@
-<script setup></script>
+<script setup>
+import { onBeforeUnmount } from "vue";
+
+onBeforeUnmount(() => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("tokenExpiration");
+});
+</script>
 
 <template>
   <store>
