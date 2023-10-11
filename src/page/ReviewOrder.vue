@@ -3,6 +3,8 @@ import ReviewOrderComponent from "../components/review/ReviewOrderComponent.vue"
 </script>
 
 <template>
-  <the-header></the-header>
-  <ReviewOrderComponent></ReviewOrderComponent>
+  <div>
+    <the-header></the-header>
+    <ReviewOrderComponent></ReviewOrderComponent>
+  </div>
 </template>

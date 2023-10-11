@@ -6,7 +6,7 @@ import ShoppingCart from "../page/ShoppingCart.vue";
 import ReviewOrder from "../page/ReviewOrder.vue";
 
 const router = createRouter({
-  history: createWebHistory("/jinan-food-project"),
+  history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/home" },
     { path: "/home", component: Home, name: "home" },

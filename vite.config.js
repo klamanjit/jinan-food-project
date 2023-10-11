@@ -3,6 +3,6 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/jinan-food-project/",
+  // base: "/jinan-food-project/",
   plugins: [vue()],
 });

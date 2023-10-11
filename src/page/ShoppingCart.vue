@@ -98,25 +98,27 @@ async function registerCarts() {
 </script>
 
 <template>
-  <the-header></the-header>
-  <base-dialog :show="isError" title="Important message!" @close="closePopup">
-    {{ popupMessage }}
-  </base-dialog>
+  <div>
+    <the-header></the-header>
+    <base-dialog :show="isError" title="Important message!" @close="closePopup">
+      {{ popupMessage }}
+    </base-dialog>
 
-  <base-card class="my-16 relative" v-if="isCarts">
-    <ShoppingCartComponent></ShoppingCartComponent>
-    <div class="text-end my-4">
-      <p>total: {{ totalPrice }} ฿</p>
-    </div>
-    <base-button class="absolute -bottom-12 right-0" @click="registerCarts"
-      >Confirm Purchase</base-button
-    >
-  </base-card>
+    <base-card class="my-16 relative" v-if="isCarts">
+      <ShoppingCartComponent></ShoppingCartComponent>
+      <div class="text-end my-4">
+        <p>total: {{ totalPrice }} ฿</p>
+      </div>
+      <base-button class="absolute -bottom-12 right-0" @click="registerCarts"
+        >Confirm Purchase</base-button
+      >
+    </base-card>
 
-  <base-card class="my-16 relative" v-else>
-    <h2>
-      "Kindly note that your cart is currently empty. To proceed with your
-      order, please consider adding items to your cart."
-    </h2>
-  </base-card>
+    <base-card class="my-16 relative" v-else>
+      <h2>
+        "Kindly note that your cart is currently empty. To proceed with your
+        order, please consider adding items to your cart."
+      </h2>
+    </base-card>
+  </div>
 </template>

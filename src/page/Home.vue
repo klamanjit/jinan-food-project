@@ -30,24 +30,26 @@ onMounted(() => {
 </script>
 
 <template>
-  <the-header :class="{ myNavFixed: !isHeroSectionIntersected }"></the-header>
-  <div ref="rootHeroSection">
-    <HeroSection></HeroSection>
-  </div>
+  <div>
+    <the-header :class="{ myNavFixed: !isHeroSectionIntersected }"></the-header>
+    <div ref="rootHeroSection">
+      <HeroSection></HeroSection>
+    </div>
 
-  <div>
-    <TypeSection></TypeSection>
-  </div>
+    <div>
+      <TypeSection></TypeSection>
+    </div>
 
-  <div>
-    <TopMenuSection></TopMenuSection>
-  </div>
+    <div>
+      <TopMenuSection></TopMenuSection>
+    </div>
 
-  <div>
-    <DrinkMenuSection></DrinkMenuSection>
-  </div>
-  <div>
-    <Footer></Footer>
+    <div>
+      <DrinkMenuSection></DrinkMenuSection>
+    </div>
+    <div>
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 
