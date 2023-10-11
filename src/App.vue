@@ -11,7 +11,7 @@ onBeforeUnmount(() => {
 <template>
   <store>
     <RouterView v-slot="{ Component }">
-      <Transition name="route">
+      <Transition name="route" mode="out-in">
         <component :is="Component"></component>
       </Transition>
     </RouterView>
